@@ -4,7 +4,18 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "funcionesUTN.h"
-
+/**
+ *
+ * @param precio
+ * @param kilometros
+ * @param debito
+ * @param credito
+ * @param bitcoin
+ * @param unidad
+ * @return int
+ * CALCULA LOS PRECIOS DE UN VUELO CON LOS DISTINTOS MEDIOS DE PAGO
+ *
+ */
 int tp1_calcularResultados(float precio, float kilometros, float* debito, float* credito, float* bitcoin, float* unidad)
 {
 	int retorno = 0;
@@ -27,6 +38,18 @@ int tp1_calcularResultados(float precio, float kilometros, float* debito, float*
 	return retorno;
 }
 
+/**
+ *
+ * @param mensaje
+ * @param precio
+ * @param debito
+ * @param credito
+ * @param bitcoin
+ * @param unidad
+ * @return int
+ * MUESTRA LOS RESULTADOS DE LOS CALCULOS DE UNA AEROLINEA POR CONSOLA
+ */
+
 int tp1_mostrarResultados(char* mensaje, float precio, float* debito, float* credito, float* bitcoin, float* unidad)
 {
 	int retorno = 0;
@@ -41,12 +64,18 @@ int tp1_mostrarResultados(char* mensaje, float precio, float* debito, float* cre
 	return retorno;
 
 }
-
+/**
+ * @return void
+ * FUNCION GRAFICA QUE MUESTRA UN SEPARADOR POR CONSOLA
+ */
 void tp1_separadorMenu()
 {
 	printf("\n*~~~~~~~~~~~~~~~~~~~~~~*\n");
 }
-
+/**
+ * @return void
+ * FUNCION GRAFICA QUE HACE ESPACIO EN LA CONSOLA
+ */
 void tp1_limpiarConsola()
 {
 	printf("\n\n\n\n");

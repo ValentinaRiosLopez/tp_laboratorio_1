@@ -12,7 +12,10 @@ int main(void)
 	setbuf(stdout,NULL);
 	ejecutarMenu();
 }
-
+/**
+ * @return void
+ * EJECUTA EL MENU DE OPCIONES
+ */
 void ejecutarMenu(){
 	int opcion;
 	int opcionSubMenu;
@@ -73,7 +76,7 @@ void ejecutarMenu(){
 				{
 				case 1:
 					kilometros = utn_getFloat("\nIngrese la cantidad de kilometros: ",
-										"\nERROR Ingrese una cantidad valida (entre 1 y 20000): ",1,20000);
+										"\nERROR Ingrese una cantidad valida (entre 100 y 100000): ",100,100000);
 					printf("Kilometros: %.2f", kilometros);
 					break;
 				case 2:
@@ -84,7 +87,6 @@ void ejecutarMenu(){
 				}
 			}while(opcionSubMenu != 3);
 
-			system("pause");
 			break;
 		case 2:
 			if(kilometros!=0 && precioVuelos!=0)
