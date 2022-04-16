@@ -1,9 +1,4 @@
-/*
- * funcionesUTN.h
- *
- *  Created on: 15 abr. 2022
- *      Author: ogfri
- */
+
 
 #ifndef FUNCIONESUTN_H_
 #define FUNCIONESUTN_H_

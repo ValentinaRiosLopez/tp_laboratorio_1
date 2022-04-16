@@ -1,9 +1,3 @@
-/*
- * funcionesTP1.h
- *
- *  Created on: 15 abr. 2022
- *      Author: ogfri
- */
 
 #ifndef FUNCIONESTP1_H_
 #define FUNCIONESTP1_H_

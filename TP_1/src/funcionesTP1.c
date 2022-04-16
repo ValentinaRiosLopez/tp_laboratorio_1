@@ -1,9 +1,4 @@
-/*
- * funcionesTP1.c
- *
- *  Created on: 15 abr. 2022
- *      Author: ogfri
- */
+
 
 #include <stdio.h>
 #include <stdlib.h>
