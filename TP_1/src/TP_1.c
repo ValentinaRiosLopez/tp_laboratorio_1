@@ -137,9 +137,18 @@ void ejecutarMenu(){
 			precioVueloA = 162965;
 			precioVueloL = 159339;
 
-			precioVuelos =1;
+			tp1_calcularResultados(precioVueloA, kilometros, &totalDebitoA, &totalCreditoA, &totalBitcoinA, &precioPorKmA);
+			tp1_calcularResultados(precioVueloL, kilometros, &totalDebitoL, &totalCreditoL, &totalBitcoinL, &precioPorKmL);
 
-			printf("Carga forzada realizada.\n");
+
+			printf("Kilometros Ingresados: %.2f.\n\n", kilometros);
+
+			diferenciaPrecio = precioVueloA - precioVueloL;
+
+			tp1_mostrarResultados("Aerolineas",precioVueloA, &totalDebitoA, &totalCreditoA, &totalBitcoinA, &precioPorKmA);
+			tp1_mostrarResultados("Latam",precioVueloL, &totalDebitoL, &totalCreditoL, &totalBitcoinL, &precioPorKmL);
+			printf("La diferencia de precio es: $%.2f.\n\n", diferenciaPrecio);
+
 
 			system("pause");
 			break;
