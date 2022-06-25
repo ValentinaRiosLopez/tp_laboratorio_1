@@ -259,6 +259,80 @@ int utn_validarCadena(char* cadena)
 
 }
 
+
+/**
+ * PIDE AL USUARIO UNA CADENA ALFANUMERICA Y LA VALIDA
+ * @param cadena
+ * @param mensaje
+ * @param mensajeError
+ * @param min
+ * @param max
+ * @return
+ */
+int utn_getStringAlfaNumerico(char* cadena, char* mensaje, char* mensajeError, int min, int max)
+{
+	int retorno = -1;
+	char palabra[100];
+	if (cadena != NULL && mensaje != NULL) {
+		retorno = 0;
+		printf("%s", mensaje);
+		fflush(stdin);
+		gets(palabra);
+
+		while( strlen(palabra) < min || strlen(palabra) > max || validarAlfaNumerico(palabra)!= 0)
+		{
+			printf("%s", mensajeError);
+			fflush(stdin);
+			gets(palabra);
+		}
+
+
+		strcpy(cadena, palabra);
+	}
+	return retorno;
+}
+
+/**
+ * Recibe una cadena y valida que contenga letras y numeros recorriendo el array
+ * y usando banderas si encuentra por lo menos una letra y un numero
+ * @param cadena
+ * @return
+ */
+int validarAlfaNumerico(char* cadena)
+{
+	int retorno = -1;
+	int i = 0;
+	int banderaNum = 0;
+	int banderaLet = 0;
+
+	for(i=0;i<strlen(cadena);i++)
+	{
+		if(cadena[i] != ' ')
+		{
+			if(isalpha(cadena[i]))
+			{
+				banderaLet=1;
+			}
+
+			if(isdigit(cadena[i]))
+			{
+				banderaNum=1;
+			}
+
+
+		}
+		if(banderaLet==1 && banderaNum ==1)
+			{
+				retorno = 0;
+				break;
+			}
+
+	}
+
+	return retorno;
+}
+
+
 /**
  * CONVIERTE EL STRING COMPLETO A MAYUSCULAAS
  * @param cadena

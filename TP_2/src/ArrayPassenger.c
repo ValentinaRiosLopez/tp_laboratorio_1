@@ -116,7 +116,6 @@ int addPassenger(Passenger* list, int len, int* id, char name[],char
 {
 	int retorno =-1;
 	int indice;
-	int opcion;
 	if(list != NULL && len >  0 && id > 0 && name != NULL && lastName != NULL && flycode != NULL)
 	{
 		if(buscarEspacio(list, len, &indice)==0)
@@ -126,10 +125,10 @@ int addPassenger(Passenger* list, int len, int* id, char name[],char
 			fflush(stdin);
 
 			utn_getStringSoloLetras(list[indice].name,"Ingrese el nombre del pasajero: ",
-							"\nERROR Ingrese un nombre valido: ",0,51);
+							"\nERROR Ingrese un nombre valido: ",3,51);
 			fflush(stdin);
 			utn_getStringSoloLetras(list[indice].lastName,"Ingrese el apellido del pasajero: ",
-							"\nERROR Ingrese un apellido valido: ",0,51);
+							"\nERROR Ingrese un apellido valido: ",3,51);
 			fflush(stdin);
 			list[indice].price = utn_getFloat("Ingrese el precio del vuelo: ",
 						"ERROR Ingrese un precio valido (entre 1000 y 100000):",1000,100000);
@@ -139,23 +138,9 @@ int addPassenger(Passenger* list, int len, int* id, char name[],char
 												  "ERROR Ingrese un tipo valido [1(niño), 2(adulto) o 3(jubilado)]: ",1, 3);
 
 			fflush(stdin);
-			opcion = utn_getNumero("Ingrese el numero correspondiente al codigo de vuelo\n"
-													 "1)AR1260\n"
-													 "2)AR2309\n"
-													 "3)AR0054\n",
-													 "ERROR Ingrese un numero valido: ",1,3);
-			switch(opcion)
-			{
-			case 1:
-				strcpy(list[indice].flycode, "AR1260");
-				break;
-			case 2:
-				strcpy(list[indice].flycode, "AR2309");
-				break;
-			case 3:
-				strcpy(list[indice].flycode, "AR0054");
-				break;
-			}
+			utn_getStringAlfaNumerico(list[indice].flycode,"Ingrese el codigo de vuelo: ", "ERROR El codigo debe tener 6 caracteres, letras y numeros: ",
+										6,6);
+
 
 			list[indice].statusFlight = utn_getNumero("Ingrese el estado de vuelo (1 para activo y 0 para inactivo): ",
 																	"Error ingrese 1(Activo) o 0 (Inactivo): ",0,1);
@@ -208,8 +193,8 @@ void imprimirUnPasajero(Passenger list)
 		break;
 	}
 
-	printf("%4d  %-15s  %-15s  $%-8.2f  %-8s  %-6s  %-8s %d\n",
-		   list.id, list.name, list.lastName, list.price, auxTipo, list.flycode, auxEstado,list.isEmpty);
+	printf("%4d  %-15s  %-15s  $%-8.2f  %-8s  %-6s  %-8s\n",
+		   list.id, list.name, list.lastName, list.price, auxTipo, list.flycode, auxEstado);
 
 
 
@@ -261,7 +246,6 @@ int modificarPasajero(Passenger* list, int len)
 	int idIngresada;
 	int indice;
 	int opcion;
-	int vuelo;
 
 	if(list != NULL && len > 0)
 	{
@@ -315,23 +299,8 @@ int modificarPasajero(Passenger* list, int len)
 					break;
 				case 5:
 					fflush(stdin);
-					vuelo = utn_getNumero("Ingrese el numero correspondiente al codigo de vuelo\n"
-											 "1)AR1260\n"
-											 "2)AR2309\n"
-											 "3)AR0054\n",
-											 "ERROR Ingrese un numero valido: ",1,3);
-					switch(vuelo)
-					{
-					case 1:
-						strcpy(list[indice].flycode, "AR1260");
-						break;
-					case 2:
-						strcpy(list[indice].flycode, "AR2309");
-						break;
-					case 3:
-						strcpy(list[indice].flycode, "AR0054");
-						break;
-					}
+					utn_getStringAlfaNumerico(list[indice].flycode,"Ingrese el codigo de vuelo: ", "ERROR El codigo debe tener 6 caracteres, letras y numeros: ",
+															6,6);
 					retorno = 0;
 					break;
 				}

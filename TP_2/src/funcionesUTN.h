@@ -9,6 +9,8 @@ char utn_getRespuesta(char* mensaje, char* mensajeError);
 float utn_getFloat(char* mensaje, char* mensajeError, int minimo, int maximo);
 int utn_getString(char* cadena, char* mensaje, char* mensajeError, int min, int max);
 int utn_getStringSoloLetras(char* cadena, char* mensaje, char* mensajeError, int min, int max);
+int utn_getStringAlfaNumerico(char* cadena, char* mensaje, char* mensajeError, int min, int max);
+int validarAlfaNumerico(char* cadena);
 float utn_sumarFloat(float numeroUno, float numeroDos);
 float utn_restarFloat(float numeroUno, float numeroDos);
 float utn_dividirFloat(float numeroUno, float numeroDos);

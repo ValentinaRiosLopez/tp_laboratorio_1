@@ -98,21 +98,25 @@ void ejecutarMenu(){
 
 				do{
 					opcionMostrar = utn_getNumero("\n======MENU INFORMES======\n"
-											  "1)Listado de los pasajeros ordenados alfabéticamente por Apellido y Tipo de pasajero.\n"
-											  "2)Total y promedio de los precios de los pasajes, y cuántos pasajeros superan el precio promedio.\n"
-											  "3)Listado de los pasajeros por Código de vuelo y estados de vuelos ‘ACTIVO’.\n"
-											  "4)Volver.\n"
-											  "Ingrese una opcion...\n", "ERROR Elija una opcion entre 1 y 4\n", 1, 4) ;
+											  "1)Listar pasajeros.\n"
+											  "2)Listado de los pasajeros ordenados alfabéticamente por Apellido y Tipo de pasajero.\n"
+											  "3)Total y promedio de los precios de los pasajes, y cuántos pasajeros superan el precio promedio.\n"
+											  "4)Listado de los pasajeros por Código de vuelo y estados de vuelos ‘ACTIVO’.\n"
+											  "5)Volver.\n"
+											  "Ingrese una opcion...\n", "ERROR Elija una opcion entre 1 y 5\n", 1, 5) ;
 
 					switch(opcionMostrar)
 					{
 					case 1:
+						printPassenger(auxiliar,TAM);
+						break;
+					case 2:
 						orden = utn_getOrder();
 						sortPassengers(auxiliar, TAM, orden);
 						printPassenger(auxiliar, TAM);
 						system("pause");
 						break;
-					case 2:
+					case 3:
 						calculosPrecio(auxiliar, TAM, &totalPrecios, &promedioPrecios);
 						pasajerosMasPromedio = cantidadDeMayores(auxiliar, TAM, &promedioPrecios);
 						printf("Total de los precios: %.2f\n", totalPrecios);
@@ -120,7 +124,7 @@ void ejecutarMenu(){
 						printf("Cantidad de pasajeros que superan el promedio: %d\n", pasajerosMasPromedio);
 						system("pause");
 						break;
-					case 3:
+					case 4:
 						orden = utn_getOrder();
 						sortPassengersByCode(auxiliar, TAM, orden);
 						printPassenger(auxiliar, TAM);
