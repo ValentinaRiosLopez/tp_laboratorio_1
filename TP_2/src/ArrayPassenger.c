@@ -88,14 +88,6 @@ int findPassengerById(Passenger* list, int len,int id)
 		}
 	}
 
-	for(i=0;i<len;i++)
-	{
-		if(list[i].isEmpty == OCUPADO && list[i].id == id)
-		{
-			indice = i;
-		}
-	}
-
 	return indice;
 }
 
