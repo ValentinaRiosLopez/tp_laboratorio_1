@@ -24,7 +24,7 @@
 
 int main()
 {
-	fopen("date.bin","ab");
+
 	setbuf(stdout,NULL);
     int option = 0;
     int contadorPasajeros = 0;
